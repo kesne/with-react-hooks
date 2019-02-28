@@ -3,31 +3,20 @@ const React = require('react');
 export default function withReactHooks(OriginalComponent) {
     const actualRender = OriginalComponent.prototype.render;
 
+    function HooksProvider({ instance }) {
+        if (!instance) {
+            return null;
+        }
+
+        return actualRender.call(instance);
+    }
+
+    const componentName = OriginalComponent.displayName || OriginalComponent.name || 'Component';
+    HooksProvider.displayName = `${componentName}Hooks`;
+
     OriginalComponent.prototype.render = function() {
-        const { ____HooksProvider: HooksProvider } = this.props;
         return <HooksProvider instance={this} />;
     };
 
-    return function WithReactHooks(props) {
-        const HooksProvider = React.useMemo(() => {
-            const HP = function HooksProvider({ instance }) {
-                if (!instance) {
-                    return null;
-                }
-
-                return actualRender.call(instance);
-            };
-
-            HP.displayName = 'HooksProvider';
-
-            return HP;
-        }, []);
-
-        return React.createElement(
-            OriginalComponent,
-            Object.assign({}, props, {
-                ____HooksProvider: HooksProvider
-            })
-        );
-    };
+    return OriginalComponent;
 }
