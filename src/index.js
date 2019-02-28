@@ -5,13 +5,12 @@ export default function withReactHooks(OriginalComponent) {
 
     OriginalComponent.prototype.render = function() {
         const { ____HooksProvider: HooksProvider } = this.props;
-        return <HooksProvider />;
+        return <HooksProvider instance={this} />;
     };
 
     return function WithReactHooks(props) {
-        const [instance, setInstance] = React.useState(null);
         const HooksProvider = React.useMemo(() => {
-            const HP = function HooksProvider() {
+            const HP = function HooksProvider({ instance }) {
                 if (!instance) {
                     return null;
                 }
@@ -22,14 +21,11 @@ export default function withReactHooks(OriginalComponent) {
             HP.displayName = 'HooksProvider';
 
             return HP;
-        }, [instance]);
+        }, []);
 
         return React.createElement(
             OriginalComponent,
             Object.assign({}, props, {
-                ref: function ref(_ref) {
-                    return setInstance(_ref);
-                },
                 ____HooksProvider: HooksProvider
             })
         );
