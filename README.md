@@ -16,7 +16,7 @@ $ npm install with-react-hooks
 
 ```jsx
 import React, { useState } from 'react';
-import withReactState from 'with-react-hooks';
+import withReactHooks from 'with-react-hooks';
 
 class Counter extends React.Component {
     constructor(props) {
@@ -42,6 +42,6 @@ class Counter extends React.Component {
     }
 }
 
-// Wrap with `withReactState` to add hook support:
-export default withReactState(Counter);
+// Wrap with `withReactHooks` to add hook support:
+export default withReactHooks(Counter);
 ```
