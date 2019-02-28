@@ -1,6 +1,6 @@
 {
   "name": "with-react-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add hook support to class components. Don't tell the React team.",
   "main": "src/index.js",
   "scripts": {
