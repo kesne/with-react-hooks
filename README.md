@@ -6,7 +6,9 @@
 
 I love hooks, but it kind of sucks that they can't be used in class components. But we can fix that! This package exposes an HOC `withReactHooks`, that allows any hook to be used inside of a class component.
 
-This uses **actual react hooks**, not just an imitation. You can directly import and use the hooks provided by the react package. This only adds one component to your tree, and is very easy to debug.
+This uses **actual react hooks**, not just an imitation. You can directly import and use the hooks provided by the react package.
+
+:fire::fire::fire: Now featuring a new _**:fire:Blazing Fast:fire:**_ implemenation. This only adds one additional component to your tree. :fire::fire::fire:
 
 ## Installing
 
