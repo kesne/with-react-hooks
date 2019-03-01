@@ -8,7 +8,7 @@ I love hooks, but it kind of sucks that they can't be used in class components. 
 
 This uses **actual react hooks**, not just an imitation. You can directly import and use the hooks provided by the react package.
 
-:fire::fire::fire: Now featuring a new _**:fire:Blazing Fast:fire:**_ implemenation. This only adds one additional component to your tree. :fire::fire::fire:
+:fire::fire::fire: Now featuring a new _**:fire:Blazing Fast:fire:**_ implemenation. This only adds one additional component to your tree.
 
 ## Installing
 
