@@ -1,21 +1,21 @@
 const React = require('react');
 
-export default function withReactHooks(OriginalComponent) {
-    const actualRender = OriginalComponent.prototype.render;
+module.exports = function withReactHooks(OriginalComponent) {
+    var actualRender = OriginalComponent.prototype.render;
 
-    function HooksProvider({ instance }) {
-        if (!instance) {
+    function HooksProvider(props) {
+        if (!props.instance) {
             return null;
         }
 
-        return actualRender.call(instance);
+        return actualRender.call(props.instance);
     }
 
-    const componentName = OriginalComponent.displayName || OriginalComponent.name || 'Component';
-    HooksProvider.displayName = `${componentName}Hooks`;
+    var componentName = OriginalComponent.displayName || OriginalComponent.name || 'Component';
+    HooksProvider.displayName = componentName + 'Hooks';
 
     OriginalComponent.prototype.render = function() {
-        return <HooksProvider instance={this} />;
+        return React.createElement(HooksProvider, { instance: this }, null);
     };
 
     return OriginalComponent;
