@@ -49,13 +49,5 @@ const Counter = withReactHooks(
     }
 );
 
-function App() {
-    return (
-        <div className="App">
-            <Counter />
-        </div>
-    );
-}
-
 const rootElement = document.getElementById('app');
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Counter />, rootElement);
