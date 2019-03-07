@@ -2,6 +2,7 @@
     "name": "with-react-hooks",
     "version": "3.0.0",
     "description": "Add hook support to class components. Don't tell the React team.",
+    "sideEffects": false,
     "scripts": {
         "test": "echo \"Seems legit.\"",
         "example": "parcel ./example/index.html --open",
