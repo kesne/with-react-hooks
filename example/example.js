@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import withReactHooks from '../';
+import withReactHooks from '../src/index';
 
 const Counter = withReactHooks(
     class Counter extends React.Component {
