@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import withReactHooks from '../src/index';
+import withReactHooks, { toHooks } from '../src/index';
 
-const Counter = withReactHooks(
+const Counter = toHooks(
     class Counter extends React.Component {
         constructor() {
             super();
@@ -12,9 +12,11 @@ const Counter = withReactHooks(
         }
 
         increment(amount) {
-            this.setState(({ count }) => ({
-                count: count + amount
-            }));
+            this.setState(state => ({
+                count: state.count + amount
+            }), () => {
+                console.log('updated!');
+            });
         }
 
         render() {
