@@ -40,7 +40,6 @@ export default function toHooks(Component) {
         const skipRender = useRef(false);
         const snapshot = useRef();
         const callbacks = useRef(new Set());
-        // @ts-ignore Yolo
         const [backingInstance] = useState(() => new Component(mergedProps));
         const state = useRef(backingInstance.state);
         const [, setForceRender] = useState(0);
